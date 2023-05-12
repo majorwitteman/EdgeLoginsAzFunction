@@ -6,7 +6,8 @@
 			"label": "func: host start",
 			"command": "host start",
 			"problemMatcher": "$func-powershell-watch",
-			"isBackground": true
+			"isBackground": true,
+			"options": {"cwd": "./src"}
 		}
 	]
 }
