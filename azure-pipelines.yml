@@ -18,10 +18,11 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
-- task: AzureFunctionApp@2
+
+- task: AzureFunctionApp@1
   inputs:
     azureSubscription: 'Az - R&D-EdgeLoginsFunction'
-    appType: 'functionAppLinux'
+    appType: 'functionApp'
     appName: 'rwedgelogins'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
