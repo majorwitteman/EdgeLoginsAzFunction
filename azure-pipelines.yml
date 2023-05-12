@@ -22,6 +22,7 @@ steps:
 - task: AzureFunctionApp@1
   inputs:
     azureSubscription: 'Az - R&D-EdgeLoginsFunction'
+    resourceGroupName: 'rw-edgelogins'
     appType: 'functionApp'
     appName: 'rwedgelogins'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
