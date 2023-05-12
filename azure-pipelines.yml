@@ -11,15 +11,6 @@ pool:
 
 steps:
 
-- task: AzurePowerShell@5
-  inputs:
-    azureSubscription: 'Az - R&D-EdgeLoginsFunction'
-    ScriptType: 'InlineScript'
-    Inline: |
-      Get-AzContext
-      Get-AzFunctionApp
-    azurePowerShellVersion: LatestVersion
-    pwsh: true
 - task: ArchiveFiles@2
   displayName: 'Archive src directory'
   inputs:
@@ -29,11 +20,10 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 
-- task: AzureFunctionApp@1
+- task: AzureFunctionApp@2
   inputs:
     azureSubscription: 'Az - R&D-EdgeLoginsFunction'
-    resourceGroupName: 'rw-edgelogins'
-    appType: 'functionApp'
+    appType: 'functionAppLinux'
     appName: 'rwedgelogins'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
