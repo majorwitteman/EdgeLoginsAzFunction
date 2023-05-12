@@ -18,7 +18,8 @@ steps:
     Inline: |
       Get-AzContext
       Get-AzFunctionApp
-    preferredAzurePowerShellVersion: 'LatestVersion'
+    preferredAzurePowerShellVersion: LatestVersion
+    pwsh: true
 - task: ArchiveFiles@2
   displayName: 'Archive src directory'
   inputs:
