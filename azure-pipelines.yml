@@ -10,6 +10,15 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'Az - R&D-EdgeLoginsFunction'
+    ScriptType: 'InlineScript'
+    Inline: |
+      Get-AzContext
+      Get-AzFunctionApp
+    preferredAzurePowerShellVersion: '3.*'
 - task: ArchiveFiles@2
   displayName: 'Archive src directory'
   inputs:
