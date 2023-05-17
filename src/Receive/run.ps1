@@ -6,7 +6,7 @@ param($Request, $TriggerMetadata)
 # Interact with query parameters or the body of the request.
 $data = $Request.Body | ConvertFrom-Json
 $data | Add-Member -Name "id" -MemberType NoteProperty -Value (New-Guid).Guid
-Write-Host ($data | ConvertTo-Json -Depth 5)
+Write-Host ($data | Select-Object -Property computerName,userName,profileName | ConvertTo-Json)
 
 Push-OutputBinding -Name "loginsDocument" -Value $data
 
